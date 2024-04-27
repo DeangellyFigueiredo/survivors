@@ -37,7 +37,12 @@ func new_game():
 	$AttackTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
-	$Music.play()
+	$HUD/LevelBar.show()
+	$HUD/CurrentLevelLabel.show()
+	$HUD/CurrentEnemyKilledLabel.show()
+	$HUD/LevelLabel.show()
+	$HUD/Pause.show()
+	#$Music.play()
 
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
@@ -71,6 +76,7 @@ func _drop_xp_orb(xp_value, lastPosition):
 func _update_level_bar(amount):
 	$Player._xp_collected(amount)
 	$HUD/LevelBar.value = ($Player.currentXp*100) / $Player.levelUpXp
+	$XpCollected.play()
 
 func _on_score_timer_timeout():
 	score += (1 * multiplicator)

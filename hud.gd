@@ -37,3 +37,6 @@ func _on_start_button_pressed():
 
 func _on_message_timer_timeout():
 	$Message.hide()
+
+func _on_pause_pressed():
+	get_tree().paused = !get_tree().paused

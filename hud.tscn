@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://whed0j1j3n8g"]
+[gd_scene load_steps=8 format=3 uid="uid://whed0j1j3n8g"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_rggq2"]
 [ext_resource type="FontFile" uid="uid://0smqh0op6iqr" path="res://fonts/Xolonium-Regular.ttf" id="2_2ab1i"]
@@ -10,10 +10,18 @@ action = &"start_game"
 [sub_resource type="Shortcut" id="Shortcut_wkwqs"]
 events = [SubResource("InputEventAction_0uoee")]
 
+[sub_resource type="InputEventAction" id="InputEventAction_ajrlt"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_vvl50"]
+events = [SubResource("InputEventAction_ajrlt")]
+
 [node name="HUD" type="CanvasLayer"]
+process_mode = 1
 script = ExtResource("1_rggq2")
 
 [node name="ScoreLabel" type="Label" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -67,12 +75,14 @@ text = "Dodge the bats"
 autowrap_mode = 2
 
 [node name="LevelBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 1120.0
 offset_bottom = 43.0
 
 [node name="LevelLabel" type="Label" parent="."]
+visible = false
 offset_left = 1032.0
 offset_top = 16.0
 offset_right = 1073.0
@@ -80,6 +90,7 @@ offset_bottom = 39.0
 text = "Level"
 
 [node name="CurrentLevelLabel" type="Label" parent="."]
+visible = false
 offset_left = 1073.0
 offset_top = 16.0
 offset_right = 1113.0
@@ -88,16 +99,29 @@ text = "1"
 horizontal_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(544, 56)
 scale = Vector2(0.385869, 0.398973)
 texture = ExtResource("3_rk3vo")
 
 [node name="CurrentEnemyKilledLabel" type="Label" parent="."]
+visible = false
 offset_left = 560.0
 offset_top = 48.0
 offset_right = 600.0
 offset_bottom = 71.0
 text = "0"
 
+[node name="Pause" type="Button" parent="."]
+process_mode = 3
+visible = false
+offset_left = 22.0
+offset_top = 51.0
+offset_right = 104.0
+offset_bottom = 139.0
+shortcut = SubResource("Shortcut_vvl50")
+text = "Pause"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
