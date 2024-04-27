@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://whed0j1j3n8g"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_rggq2"]
+[ext_resource type="FontFile" uid="uid://0smqh0op6iqr" path="res://fonts/Xolonium-Regular.ttf" id="2_2ab1i"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_0uoee"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_wkwqs"]
+events = [SubResource("InputEventAction_0uoee")]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_rggq2")
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_2ab1i")
+theme_override_font_sizes/font_size = 64
+text = "2"
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -200.0
+offset_right = 89.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_2ab1i")
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_wkwqs")
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -124.0
+offset_right = 264.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_2ab1i")
+theme_override_font_sizes/font_size = 64
+text = "Dodge the bats"
+autowrap_mode = 2
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

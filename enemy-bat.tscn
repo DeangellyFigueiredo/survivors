@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb274lsh4x0fv"]
+
+[ext_resource type="Script" path="res://enemy-bat.gd" id="1_cxm2l"]
+[ext_resource type="Texture2D" uid="uid://qaxlmb7ghbb6" path="res://imagem_2024-04-27_002121046-removebg-preview.png" id="2_td0qj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlnr4"]
+atlas = ExtResource("2_td0qj")
+region = Rect2(142, 52, 216, 244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j31d"]
+atlas = ExtResource("2_td0qj")
+region = Rect2(393, 52, 216, 244)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8tq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlnr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j31d")
+}],
+"loop": true,
+"name": &"fly_left",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wb06"]
+radius = 8.94426
+
+[node name="Bat" type="RigidBody2D" groups=["mobs"]]
+position = Vector2(369, 235)
+disable_mode = 2
+collision_layer = 3
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_cxm2l")
+damage = 30
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_n8tq3")
+animation = &"fly_left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -1)
+rotation = 2.0944
+shape = SubResource("CircleShape2D_4wb06")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-6, -2)
+rotation = -1.5708
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -46.0
+offset_right = 18.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.31279, 0.283084)
+value = 100.0
+show_percentage = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="killed" from="." to="." method="_on_killed"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
