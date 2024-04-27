@@ -41,13 +41,15 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdu4x"]
 
-[node name="OrbExperience" type="Area2D"]
+[node name="OrbExperience" type="Area2D" groups=["orb"]]
 script = ExtResource("1_befgo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drlvd")
-frame_progress = 0.506831
+frame_progress = 0.043313
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.36, 1.32)
 shape = SubResource("CircleShape2D_tdu4x")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

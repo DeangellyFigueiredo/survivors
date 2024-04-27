@@ -1,20 +1,22 @@
 extends Area2D
 signal killed
-@export var healthBar = 50
-@export var speed = 400 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
+signal levelUped
+@export var currentLevel = 1
+@export var currentXp = 0
+@export var healthBar = 500
+@export var maximumHealth =500
+@export var speed = 400 
+var levelUpXp
+var screen_size 
 var last_movement = "idle_bottom"
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
 	start(Vector2(562,-242))
 
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -55,19 +57,35 @@ func _process(delta):
 func _on_body_entered(body):
 	_got_hit(body.damage)
 	if healthBar <= 0 :
-		hide() # Player disappears after being hit.
+		hide() 
 		killed.emit()
 		$CollisionShape2D.set_deferred("disabled", true)
-		#we can't change physics properties on a physics callback.
 	
 func _got_hit(damage):
+	print('tomou damage ', damage)
+	print('vida atual ', healthBar)
 	healthBar -= damage
-	$ProgressBar.value = (100*healthBar)/50
+	$HealthBar.value = (100*healthBar)/maximumHealth
 
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
-	$ProgressBar.value = 100
-	healthBar = 50
+	$HealthBar.value = 100
+	healthBar = 500
+	currentLevel = 1
+	currentXp = 0
+	levelUpXp = 500
 
+func _level_up():
+	currentLevel += 1
+	currentXp = 0
+	healthBar = maximumHealth
+	$HealthBar.value = (100*healthBar)/maximumHealth
+	levelUpXp = 500 + currentLevel*50
+	emit_signal("levelUped")
+
+func _xp_collected(amount) : 
+	currentXp += amount
+	if currentXp >= levelUpXp:
+		_level_up()

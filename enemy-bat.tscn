@@ -30,6 +30,7 @@ radius = 8.94426
 
 [node name="Bat" type="RigidBody2D" groups=["mobs"]]
 position = Vector2(369, 235)
+scale = Vector2(1.00796, 1)
 disable_mode = 2
 collision_layer = 3
 gravity_scale = 0.0
@@ -43,6 +44,7 @@ metadata/_edit_group_ = true
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_n8tq3")
 animation = &"fly_left"
+frame_progress = 0.463402
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, -1)

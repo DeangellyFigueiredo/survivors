@@ -135,7 +135,7 @@ radius = 11.0
 height = 61.0
 
 [node name="Player" type="Area2D"]
-position = Vector2(526, 237)
+position = Vector2(526, 236)
 script = ExtResource("1_2igb7")
 speed = 500
 metadata/_edit_group_ = true
@@ -149,7 +149,7 @@ animation = &"walk_bottom"
 position = Vector2(-4, 1.5)
 shape = SubResource("CapsuleShape2D_qq0yb")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -48.0
 offset_top = -51.0
 offset_right = 32.0

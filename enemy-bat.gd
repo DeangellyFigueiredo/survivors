@@ -1,9 +1,12 @@
 extends RigidBody2D
 
+@export var player : PackedScene
 signal killed
 @export var healthBar = 20
 @export var damage = 10
-@export var xpDrop = 10
+@export var xpDrop = 50
+var player_position
+var target_position
 func _ready():
 	$AnimatedSprite2D.animation = "fly_left"
 	$AnimatedSprite2D.play()
@@ -11,8 +14,8 @@ func _ready():
 
 
 func _process(delta):
-	pass
-
+	if player:
+		print(player.position)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
