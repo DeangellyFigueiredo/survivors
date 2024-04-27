@@ -125,3 +125,5 @@ func _on_attack_timer_timeout():
 func _on_player_level_uped():
 	$HUD/CurrentLevelLabel.text = str($Player.currentLevel)
 	$LevelUp.play()
+	$ImprovementsOptions.show()
+	get_tree().paused = true
