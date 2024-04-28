@@ -71,7 +71,7 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 	$HealthBar.value = 100
-	healthBar = 500
+	healthBar = 100
 	currentLevel = 1
 	currentXp = 0
 	levelUpXp = 100
@@ -81,7 +81,7 @@ func _level_up():
 	currentXp = 0
 	healthBar = maximumHealth
 	$HealthBar.value = (100*healthBar)/maximumHealth
-	levelUpXp += currentLevel*50
+	levelUpXp += currentLevel*20
 	emit_signal("levelUped")
 
 func _xp_collected(amount) : 
