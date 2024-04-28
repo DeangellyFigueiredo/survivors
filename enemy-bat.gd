@@ -25,7 +25,6 @@ func _on_body_entered(body):
 	var groups = body.get_groups()
 	if groups[0] == "shot":
 		healthBar -= body.damage
-		print("bat tomou ", body.damage)
 		$ProgressBar.value = (healthBar*100)/20
 		if healthBar <= 0:
 			emit_signal("killed", xpDrop,$".".position )

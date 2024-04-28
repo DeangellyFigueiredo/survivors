@@ -7,7 +7,7 @@ signal levelUped
 @export var maximumHealth =500
 @export var speed = 100 
 @export var attackDamage = 50
-var levelUpXp
+@export var levelUpXp =100
 var screen_size 
 var last_movement = "idle_bottom"
 

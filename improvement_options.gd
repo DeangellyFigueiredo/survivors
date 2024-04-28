@@ -4,9 +4,9 @@ extends CanvasLayer
 signal optionSelected
 var options = [
 	{"sprite": "sprite-velocity-improvement.png", "type": "velocity_player", "value": "20", "title": "Melhore a velocidade de movimento", "description": "Aumente a velocidade em"},
-	{"sprite": "sprite-attack-damage-improvemente.png", "type": "damage_player", "value": "5", "title": "Melhore o dano de ataque", "description": "Aumente a dano de ataque em"},
-	{"sprite": "sprite-attack-rate-improvement.png", "type": "attack_rate", "value": "5", "title": "Melhore a velocidade de ataque", "description": "Aumente a velocidade de ataque em"},
-	{"sprite": "sprite-health-improvement.png", "type": "health_player", "value": "20", "title": "Melhore a vida", "description": "Aumente a vida em"}
+	{"sprite": "sprite-attack-damage-improvemente.png", "type": "damage_player", "value": "15", "title": "Melhore o dano de ataque", "description": "Aumente a dano de ataque em"},
+	{"sprite": "sprite-attack-rate-improvement.png", "type": "attack_rate", "value": "10", "title": "Melhore a velocidade de ataque", "description": "Aumente a velocidade de ataque em"},
+	{"sprite": "sprite-health-improvement.png", "type": "health_player", "value": "30", "title": "Melhore a vida", "description": "Aumente a vida em"}
 ]
 
 var sprites = {}  # Dictionary to store preloaded sprites

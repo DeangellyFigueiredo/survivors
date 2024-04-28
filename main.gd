@@ -144,3 +144,19 @@ func _on_improvements_options_option_selected(option):
 		$AttackTimer.wait_time -= $AttackTimer.wait_time *(float(option.value)/100)
 	
 
+
+
+func _on_hud_paused_game(paused):
+	if paused:
+		_update_player_status()
+		$PlayerStatus.show()
+	else:
+		$PlayerStatus.hide()
+
+func _update_player_status():
+	$PlayerStatus/Panel/XpLabel.text = str($Player.currentXp) + "/"  +str($Player.levelUpXp) + " EXP"
+	$PlayerStatus/Panel/AttackLabel.text = str($Player.attackDamage) + " Dano"
+	$PlayerStatus/Panel/AttackRateLabel.text = str($AttackTimer.wait_time) 
+	$PlayerStatus/Panel/HealthLabel.text = str($Player.healthBar) + "/" + str($Player.maximumHealth)
+	$PlayerStatus/Panel/VelocityLabel.text = str($Player.speed) + " movimento"
+	

@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://22i4sr2yltib"]
+
+[ext_resource type="FontFile" uid="uid://0smqh0op6iqr" path="res://fonts/Xolonium-Regular.ttf" id="1_hrdmp"]
+[ext_resource type="Texture2D" uid="uid://ivnp2m40bp81" path="res://arts/idle.png" id="2_ndu0m"]
+[ext_resource type="Texture2D" uid="uid://cyy2v6pn7cvuq" path="res://arts/sprite-attack-damage-improvemente.png" id="3_pruql"]
+[ext_resource type="Texture2D" uid="uid://bxsoga4p2kves" path="res://arts/sprite-attack-rate-improvement.png" id="4_e1rt1"]
+[ext_resource type="Texture2D" uid="uid://d0o33th4i8q40" path="res://arts/sprite-level.png" id="5_n8j1u"]
+[ext_resource type="Texture2D" uid="uid://bfuslmb5rxbhv" path="res://arts/sprite-velocity.png" id="6_dyl6i"]
+[ext_resource type="Texture2D" uid="uid://kkixkar5g8or" path="res://arts/sprite-health.png" id="7_ub7yi"]
+
+[node name="PlayerStatus" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -124.0
+offset_right = 172.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 32.0
+offset_right = 197.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("1_hrdmp")
+text = "Status atual"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(79.5, 140.75)
+scale = Vector2(0.388112, 0.327493)
+texture = ExtResource("2_ndu0m")
+
+[node name="AttackSprite" type="Sprite2D" parent="Panel"]
+position = Vector2(153.084, 119.244)
+scale = Vector2(0.233731, 0.225669)
+texture = ExtResource("3_pruql")
+
+[node name="XpLabel" type="Label" parent="Panel"]
+offset_left = 165.5
+offset_top = 84.75
+offset_right = 283.5
+offset_bottom = 107.75
+theme_override_fonts/font = ExtResource("1_hrdmp")
+text = "100/200 EXP"
+
+[node name="AttackRateSprite" type="Sprite2D" parent="Panel"]
+position = Vector2(152, 144)
+scale = Vector2(0.173047, 0.187252)
+texture = ExtResource("4_e1rt1")
+
+[node name="AttackLabel" type="Label" parent="Panel"]
+offset_left = 167.5
+offset_top = 108.75
+offset_right = 285.5
+offset_bottom = 131.75
+theme_override_fonts/font = ExtResource("1_hrdmp")
+text = "45 Dano"
+
+[node name="LevelSprite" type="Sprite2D" parent="Panel"]
+position = Vector2(151.5, 92.75)
+scale = Vector2(0.233991, 0.189371)
+texture = ExtResource("5_n8j1u")
+
+[node name="AttackRateLabel" type="Label" parent="Panel"]
+offset_left = 166.0
+offset_top = 136.0
+offset_right = 296.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("1_hrdmp")
+text = "1,25 ataques/s"
+
+[node name="VelocitySprite" type="Sprite2D" parent="Panel"]
+position = Vector2(152, 196)
+scale = Vector2(0.113991, 0.149371)
+texture = ExtResource("6_dyl6i")
+
+[node name="HealthLabel" type="Label" parent="Panel"]
+offset_left = 165.0
+offset_top = 163.0
+offset_right = 283.0
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("1_hrdmp")
+text = "100/200 vida"
+
+[node name="VelocityLabel" type="Label" parent="Panel"]
+offset_left = 167.0
+offset_top = 186.0
+offset_right = 300.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("1_hrdmp")
+text = "200 movimento
+"
+
+[node name="HealthSprite" type="Sprite2D" parent="Panel"]
+position = Vector2(152, 173)
+scale = Vector2(0.233991, 0.189371)
+texture = ExtResource("7_ub7yi")
