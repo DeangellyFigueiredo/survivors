@@ -5,7 +5,8 @@ signal levelUped
 @export var currentXp = 0
 @export var healthBar = 500
 @export var maximumHealth =500
-@export var speed = 400 
+@export var speed = 100 
+@export var attackDamage = 50
 var levelUpXp
 var screen_size 
 var last_movement = "idle_bottom"
@@ -62,8 +63,6 @@ func _on_body_entered(body):
 		$CollisionShape2D.set_deferred("disabled", true)
 	
 func _got_hit(damage):
-	print('tomou damage ', damage)
-	print('vida atual ', healthBar)
 	healthBar -= damage
 	$HealthBar.value = (100*healthBar)/maximumHealth
 
@@ -75,14 +74,14 @@ func start(pos):
 	healthBar = 500
 	currentLevel = 1
 	currentXp = 0
-	levelUpXp = 500
+	levelUpXp = 100
 
 func _level_up():
 	currentLevel += 1
 	currentXp = 0
 	healthBar = maximumHealth
 	$HealthBar.value = (100*healthBar)/maximumHealth
-	levelUpXp = 500 + currentLevel*50
+	levelUpXp += currentLevel*50
 	emit_signal("levelUped")
 
 func _xp_collected(amount) : 

@@ -42,7 +42,7 @@ func new_game():
 	$HUD/CurrentEnemyKilledLabel.show()
 	$HUD/LevelLabel.show()
 	$HUD/Pause.show()
-	#$Music.play()
+	$Music.play()
 
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
@@ -94,7 +94,7 @@ func _on_attack_timer_timeout():
 	shot.position = $Player.position
 	var last_movement = $Player.last_movement
 	var direction 
-	
+	shot.damage = $Player.attackDamage
 	
 	if Input.is_action_pressed("move_right") && Input.is_action_pressed("move_up"):
 		direction = 7*PI / 4
@@ -126,4 +126,21 @@ func _on_player_level_uped():
 	$HUD/CurrentLevelLabel.text = str($Player.currentLevel)
 	$LevelUp.play()
 	$ImprovementsOptions.show()
+	$ImprovementsOptions._add_options()
 	get_tree().paused = true
+
+
+func _on_improvements_options_option_selected(option):
+	$ImprovementsOptions.hide()
+	$ImprovementsOptions.get_tree().call_group("options", "queue_free")
+	get_tree().paused = false
+	if option.type == "velocity_player":
+		$Player.speed += int(option.value)
+	if option.type == "health_player":
+		$Player.maximumHealth += int(option.value)
+	if option.type == "damage_player":
+		$Player.attackDamage += int(option.value)
+	if option.type == "attack_rate":
+		$AttackTimer.wait_time -= $AttackTimer.wait_time *(float(option.value)/100)
+	
+

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://56qosgcnbbmw"]
+
+[ext_resource type="FontFile" uid="uid://0smqh0op6iqr" path="res://fonts/Xolonium-Regular.ttf" id="1_a60r1"]
+[ext_resource type="Texture2D" uid="uid://cyy2v6pn7cvuq" path="res://arts/sprite-attack-damage-improvemente.png" id="2_rxoct"]
+
+[node name="ButtonOption" type="MenuButton" groups=["options"]]
+offset_right = 136.0
+offset_bottom = 40.0
+scale = Vector2(1.6, 1.6)
+
+[node name="Description" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 27.0
+offset_right = 384.0
+offset_bottom = 52.0
+scale = Vector2(0.24, 0.279999)
+theme_override_fonts/font = ExtResource("1_a60r1")
+theme_override_font_sizes/font_size = 20
+text = "Aumente o seu ataque em 5
+"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 374.0
+offset_bottom = 35.0
+scale = Vector2(0.32, 0.68)
+theme_override_fonts/font = ExtResource("1_a60r1")
+theme_override_font_sizes/font_size = 20
+text = "Melhorar o dano de ataque
+"
+
+[node name="SpriteIcon" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(0.170792, 0.163978)
+texture = ExtResource("2_rxoct")

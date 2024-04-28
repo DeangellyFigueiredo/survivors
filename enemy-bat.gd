@@ -24,7 +24,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_body_entered(body):
 	var groups = body.get_groups()
 	if groups[0] == "shot":
-		healthBar -= 5
+		healthBar -= body.damage
+		print("bat tomou ", body.damage)
 		$ProgressBar.value = (healthBar*100)/20
 		if healthBar <= 0:
 			emit_signal("killed", xpDrop,$".".position )
