@@ -14,6 +14,7 @@ var last_movement = "idle_bottom"
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
+	$Blood.hide()
 	start(Vector2(562,-242))
 
 func _process(delta):
@@ -54,9 +55,10 @@ func _process(delta):
 	if velocity.x == 0 && velocity.y == 0:
 		$AnimatedSprite2D.animation = last_movement	
 
-
 func _on_body_entered(body):
 	_got_hit(body.damage)
+	$DamageReceived.play()
+	
 	if healthBar <= 0 :
 		hide() 
 		killed.emit()
@@ -64,6 +66,8 @@ func _on_body_entered(body):
 	
 func _got_hit(damage):
 	healthBar -= damage
+	$Blood.show()
+	$Blood.play()
 	$HealthBar.value = (100*healthBar)/maximumHealth
 
 func start(pos):
@@ -88,3 +92,10 @@ func _xp_collected(amount) :
 	currentXp += amount
 	if currentXp >= levelUpXp:
 		_level_up()
+
+
+
+func _on_blood_animation_looped():
+	$Blood.stop()
+	$Blood.hide()
+

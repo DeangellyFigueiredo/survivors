@@ -25,6 +25,8 @@ func game_over():
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("orb","queu_free")
 
 func new_game():
 	score = 0
@@ -142,9 +144,6 @@ func _on_improvements_options_option_selected(option):
 		$Player.attackDamage += int(option.value)
 	if option.type == "attack_rate":
 		$AttackTimer.wait_time -= $AttackTimer.wait_time *(float(option.value)/100)
-	
-
-
 
 func _on_hud_paused_game(paused):
 	if paused:

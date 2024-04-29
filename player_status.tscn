@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://22i4sr2yltib"]
+[gd_scene load_steps=8 format=3 uid="uid://dktnh86e0hxy7"]
 
 [ext_resource type="FontFile" uid="uid://0smqh0op6iqr" path="res://fonts/Xolonium-Regular.ttf" id="1_hrdmp"]
 [ext_resource type="Texture2D" uid="uid://ivnp2m40bp81" path="res://arts/idle.png" id="2_ndu0m"]
@@ -45,6 +45,7 @@ scale = Vector2(0.233731, 0.225669)
 texture = ExtResource("3_pruql")
 
 [node name="XpLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 165.5
 offset_top = 84.75
 offset_right = 283.5
@@ -58,6 +59,7 @@ scale = Vector2(0.173047, 0.187252)
 texture = ExtResource("4_e1rt1")
 
 [node name="AttackLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 167.5
 offset_top = 108.75
 offset_right = 285.5
@@ -71,6 +73,7 @@ scale = Vector2(0.233991, 0.189371)
 texture = ExtResource("5_n8j1u")
 
 [node name="AttackRateLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 166.0
 offset_top = 136.0
 offset_right = 296.0
@@ -84,6 +87,7 @@ scale = Vector2(0.113991, 0.149371)
 texture = ExtResource("6_dyl6i")
 
 [node name="HealthLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 165.0
 offset_top = 163.0
 offset_right = 283.0
@@ -92,6 +96,7 @@ theme_override_fonts/font = ExtResource("1_hrdmp")
 text = "100/200 vida"
 
 [node name="VelocityLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 167.0
 offset_top = 186.0
 offset_right = 300.0

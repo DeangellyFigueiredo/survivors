@@ -1,7 +1,129 @@
-[gd_scene load_steps=17 format=3 uid="uid://tiga33ig042k"]
+[gd_scene load_steps=38 format=3 uid="uid://tiga33ig042k"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_2igb7"]
 [ext_resource type="Texture2D" uid="uid://m4312bidxs3" path="res://sprite-character.png" id="1_a3mp4"]
+[ext_resource type="AudioStream" uid="uid://ddsy42e7gj2aq" path="res://audio/damage_received.mp3" id="3_iptt7"]
+[ext_resource type="Texture2D" uid="uid://wkif4ll8cjvp" path="res://arts/blood.png" id="4_tbuc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h83vp"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ojbx"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igbl6"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3gxx"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkf72"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwiu5"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtygw"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv542"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1536, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3agoa"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef1n6"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjpub"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1024, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swf31"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1536, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tubas"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(0, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrh63"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(512, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e4b3"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1024, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l46wd"]
+atlas = ExtResource("4_tbuc6")
+region = Rect2(1536, 1536, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jt1rn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h83vp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ojbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igbl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3gxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkf72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwiu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtygw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv542")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3agoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef1n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjpub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swf31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tubas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrh63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e4b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l46wd")
+}],
+"loop": true,
+"name": &"blood",
+"speed": 30.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tcuv"]
 atlas = ExtResource("1_a3mp4")
@@ -134,11 +256,35 @@ animations = [{
 radius = 11.0
 height = 61.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wuvx"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foh81"]
+bg_color = Color(0.760784, 0.262745, 0.129412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Player" type="Area2D"]
 position = Vector2(526, 236)
 script = ExtResource("1_2igb7")
 speed = 500
 metadata/_edit_group_ = true
+
+[node name="Blood" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, 5)
+scale = Vector2(0.32946, 0.32946)
+skew = 0.699877
+sprite_frames = SubResource("SpriteFrames_jt1rn")
+animation = &"blood"
+frame = 4
+frame_progress = 0.889243
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -155,6 +301,12 @@ offset_top = -51.0
 offset_right = 32.0
 offset_bottom = -24.0
 scale = Vector2(1.15544, 0.64)
+theme_override_styles/background = SubResource("StyleBoxFlat_4wuvx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_foh81")
 show_percentage = false
 
+[node name="DamageReceived" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iptt7")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_looped" from="Blood" to="." method="_on_blood_animation_looped"]

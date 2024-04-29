@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmiqfglenm2wi"]
+[gd_scene load_steps=3 format=3 uid="uid://bqrpine7pyst2"]
 
 [ext_resource type="Script" path="res://improvement_options.gd" id="1_m2lxb"]
-[ext_resource type="PackedScene" uid="uid://56qosgcnbbmw" path="res://button_option.tscn" id="2_v1vef"]
+[ext_resource type="PackedScene" path="res://button_option.tscn" id="2_v1vef"]
 
 [node name="ImprovementsOptions" type="CanvasLayer"]
 script = ExtResource("1_m2lxb")

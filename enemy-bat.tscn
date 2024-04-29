@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb274lsh4x0fv"]
+[gd_scene load_steps=9 format=3 uid="uid://cb274lsh4x0fv"]
 
 [ext_resource type="Script" path="res://enemy-bat.gd" id="1_cxm2l"]
 [ext_resource type="Texture2D" uid="uid://qaxlmb7ghbb6" path="res://imagem_2024-04-27_002121046-removebg-preview.png" id="2_td0qj"]
@@ -28,8 +28,24 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4wb06"]
 radius = 8.94426
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27sda"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cejbl"]
+bg_color = Color(0.754906, 0.331882, 0.196649, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
 [node name="Bat" type="RigidBody2D" groups=["mobs"]]
-position = Vector2(369, 235)
+position = Vector2(352, 222)
 scale = Vector2(1.00796, 1)
 disable_mode = 2
 collision_layer = 3
@@ -47,7 +63,7 @@ animation = &"fly_left"
 frame_progress = 0.463402
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, -1)
+position = Vector2(-5.95265, -1)
 rotation = 2.0944
 shape = SubResource("CircleShape2D_4wb06")
 
@@ -56,18 +72,18 @@ position = Vector2(-6, -2)
 rotation = -1.5708
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-anchors_preset = 8
+z_as_relative = false
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -46.0
-offset_right = 18.0
-offset_bottom = -19.0
+offset_left = -27.7789
+offset_top = -50.0
+offset_right = 72.2211
 grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.31279, 0.283084)
+scale = Vector2(0.5, 0.197)
+theme_override_styles/background = SubResource("StyleBoxFlat_27sda")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cejbl")
 value = 100.0
 show_percentage = false
 
